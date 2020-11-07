@@ -1,0 +1,6 @@
+﻿interpol.polygon
+================
+
+.. currentmodule:: interpol
+
+.. autofunction:: polygon

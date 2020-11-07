@@ -1,0 +1,6 @@
+﻿interpol.triangles
+==================
+
+.. currentmodule:: interpol
+
+.. autofunction:: triangles

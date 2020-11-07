@@ -2,10 +2,14 @@
 Api reference
 =============
 
+
+
 The package contains 3 interpolation functions
 
-.. autofunction:: interpol.polygon
+.. autosummary::
+    :toctree: generated/
+    :nosignatures:
 
-.. autofunction:: interpol.triangles
-
-.. autofunction:: interpol.polygons
+    interpol.polygon
+    interpol.triangles
+    interpol.polygons

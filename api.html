@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Api reference &mdash; interpol 0.post6+gbaee00c documentation</title>
+  <title>Api reference &mdash; interpol 0.post7+g4ce3bea documentation</title>
   
 
   
@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Release History" href="release-history.html" />
+    <link rel="next" title="interpol.polygon" href="generated/interpol.polygon.html" />
     <link rel="prev" title="Usage" href="usage.html" /> 
 </head>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.post6+gbaee00c
+                0.post7+g4ce3bea
               </div>
             
           
@@ -92,7 +92,12 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Api reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Api reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/interpol.polygon.html">interpol.polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/interpol.triangles.html">interpol.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/interpol.polygons.html">interpol.polygons</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="release-history.html">Release History</a></li>
 </ul>
 
@@ -162,105 +167,23 @@
   <div class="section" id="api-reference">
 <h1>Api reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
 <p>The package contains 3 interpolation functions</p>
-<dl class="py function">
-<dt id="interpol.polygon">
-<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">polygon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="_modules/interpol/_core.html#polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.polygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generalised barycentric interpolation inside/near single polygon.</p>
-<p>Interpolate the value at any point in the plane, if the coordinates and the
-values of a polygon’s nodes are specified.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of node coordinates (x, y) in order as they appear in the polygon.</p>
-</dd>
-<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each node.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
-<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
-length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
-return value has the same length as the anchorvalues.</p>
-<p>For points that lie outside the polygon, the interpolated value may be smaller
-(larger) than the minimum (maximum) of the specified <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>. This
-means that, when using colors for the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>, an invalid color may
-be returned.</p>
-<p>Source of algorithm: <a class="reference external" href="https://www.inf.usi.ch/hormann/papers/Hormann.2006.MVC.pdf">https://www.inf.usi.ch/hormann/papers/Hormann.2006.MVC.pdf</a></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="interpol.triangles">
-<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">triangles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">outsidevalue</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="_modules/interpol/_core.html#triangles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.triangles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Standard barycentric interpolation (using triangles) near set of points.</p>
-<p>Interpolate the value at any point in the plane, if the coordinates and
-values of a set of anchors is specified. If &gt;3 anchors are specified, the
-convex hull around them is tessellated with Delaunay triangles.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of anchor point coordinates (x, y).</p>
-</dd>
-<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each anchor point.</p>
-</dd>
-<dt><strong>outsidevalue, optional</strong></dt><dd><p>Float specifying the value for points outside the hull. If not specified,
-an attempt at extrapolation is made (default).</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
-<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
-length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
-return value has the same length as the anchorvalues.</p>
-<p>Source: <a class="reference external" href="https://stackoverflow.com/questions/57863618/how-to-vectorize-cal">https://stackoverflow.com/questions/57863618/how-to-vectorize-cal</a>        culation-of-barycentric-coordinates-in-python</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="interpol.polygons">
-<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">polygons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="_modules/interpol/_core.html#polygons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.polygons" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generalised barycentric interpolation (using polygons) near set of points.</p>
-<p>Interpolate the value at any point in the plane, if the coordinates and
-values of a set of anchors is specified. The convex hull around them is
-tessellated with polygons.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of anchor point coordinates (x, y).</p>
-</dd>
-<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each anchor point.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
-<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
-length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
-return value has the same length as the anchorvalues.</p>
-<p>For points that lie outside the hull, the interpolated value may be smaller
-(larger) than the minimum (maximum) of the specified <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>. This
-means that, when using colors for the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>, an invalid color may
-be returned.</p>
-</dd></dl>
-
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/interpol.polygon.html#interpol.polygon" title="interpol.polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpol.polygon</span></code></a></p></td>
+<td><p>Generalised barycentric interpolation inside/near single polygon.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/interpol.triangles.html#interpol.triangles" title="interpol.triangles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpol.triangles</span></code></a></p></td>
+<td><p>Standard barycentric interpolation (using triangles) near set of points.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/interpol.polygons.html#interpol.polygons" title="interpol.polygons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpol.polygons</span></code></a></p></td>
+<td><p>Generalised barycentric interpolation (using polygons) near set of points.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -271,7 +194,7 @@ be returned.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="release-history.html" class="btn btn-neutral float-right" title="Release History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="generated/interpol.polygon.html" class="btn btn-neutral float-right" title="interpol.polygon" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

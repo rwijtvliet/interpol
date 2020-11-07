@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview: module code &mdash; interpol 0.post7+g4ce3bea documentation</title>
+  <title>interpol.polygons &mdash; interpol 0.post7+g4ce3bea documentation</title>
   
 
   
@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release History" href="../release-history.html" />
+    <link rel="prev" title="interpol.triangles" href="interpol.triangles.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,10 +89,15 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">Api reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Api reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="interpol.polygon.html">interpol.polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpol.triangles.html">interpol.triangles</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">interpol.polygons</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../release-history.html">Release History</a></li>
 </ul>
 
@@ -138,10 +145,16 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Overview: module code</li>
+          <li><a href="../api.html">Api reference</a> &raquo;</li>
+        
+      <li>interpol.polygons</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/interpol.polygons.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -153,14 +166,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>All modules for which code is available</h1>
-<ul><li><a href="interpol/_core.html">interpol._core</a></li>
-</ul>
+  <div class="section" id="interpol-polygons">
+<h1>interpol.polygons<a class="headerlink" href="#interpol-polygons" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="interpol.polygons">
+<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">polygons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/interpol/_core.html#polygons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.polygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generalised barycentric interpolation (using polygons) near set of points.</p>
+<p>Interpolate the value at any point in the plane, if the coordinates and
+values of a set of anchors is specified. The convex hull around them is
+tessellated with polygons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of anchor point coordinates (x, y).</p>
+</dd>
+<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each anchor point.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
+<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
+length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
+return value has the same length as the anchorvalues.</p>
+<p>For points that lie outside the hull, the interpolated value may be smaller
+(larger) than the minimum (maximum) of the specified <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>. This
+means that, when using colors for the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>, an invalid color may
+be returned.</p>
+</dd></dl>
+
+</div>
+
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../release-history.html" class="btn btn-neutral float-right" title="Release History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interpol.triangles.html" class="btn btn-neutral float-left" title="interpol.triangles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

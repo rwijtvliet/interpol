@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>interpol._core &mdash; interpol 0.post6+gbaee00c documentation</title>
+  <title>interpol._core &mdash; interpol 0.post7+g4ce3bea documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.post6+gbaee00c
+                0.post7+g4ce3bea
               </div>
             
           
@@ -171,7 +171,7 @@
 <span class="c1"># %% Interpolation function in single polygon.</span>
 
 
-<div class="viewcode-block" id="polygon"><a class="viewcode-back" href="../../api.html#interpol.polygon">[docs]</a><span class="k">def</span> <span class="nf">polygon</span><span class="p">(</span><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<div class="viewcode-block" id="polygon"><a class="viewcode-back" href="../../generated/interpol.polygon.html#interpol.polygon">[docs]</a><span class="k">def</span> <span class="nf">polygon</span><span class="p">(</span><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generalised barycentric interpolation inside/near single polygon.</span>
 
@@ -246,7 +246,7 @@
 <span class="c1"># %% Interpolation functions in plane with points.</span>
 
 
-<div class="viewcode-block" id="triangles"><a class="viewcode-back" href="../../api.html#interpol.triangles">[docs]</a><span class="k">def</span> <span class="nf">triangles</span><span class="p">(</span>
+<div class="viewcode-block" id="triangles"><a class="viewcode-back" href="../../generated/interpol.triangles.html#interpol.triangles">[docs]</a><span class="k">def</span> <span class="nf">triangles</span><span class="p">(</span>
     <span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">outsidevalue</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -342,7 +342,7 @@
     <span class="k">return</span> <span class="n">interp</span></div>
 
 
-<div class="viewcode-block" id="polygons"><a class="viewcode-back" href="../../api.html#interpol.polygons">[docs]</a><span class="k">def</span> <span class="nf">polygons</span><span class="p">(</span><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<div class="viewcode-block" id="polygons"><a class="viewcode-back" href="../../generated/interpol.polygons.html#interpol.polygons">[docs]</a><span class="k">def</span> <span class="nf">polygons</span><span class="p">(</span><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generalised barycentric interpolation (using polygons) near set of points.</span>
 

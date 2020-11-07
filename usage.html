@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; interpol 0.post6+gbaee00c documentation</title>
+  <title>Usage &mdash; interpol 0.post7+g4ce3bea documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.post6+gbaee00c
+                0.post7+g4ce3bea
               </div>
             
           
@@ -195,7 +195,8 @@ this great paper: <a class="reference external" href="https://www.inf.usi.ch/hor
 <span class="gh">Out[4]: </span><span class="go">array([0.4  , 0.575, 0.425, 1.   ])</span>
 </pre></div>
 </div>
-<p>Here is an illustration that shows how the interpolated values/colors vary across the plane for a given polygon. The anchor points are indicated.</p>
+<p>Here is an illustration that shows how the interpolated values/colors vary across
+the plane for a given polygon. The anchor points are indicated.</p>
 <div class="figure align-default">
 <img alt="_images/illustration1.png" src="_images/illustration1.png" />
 </div>
@@ -212,12 +213,26 @@ does not always look good. Also, extrapolation, i.e. to points that do not lay
 within the convex hull around the anchorpoints, is not possible. If wanted, the
 function tries nonetheless, but results are often poor.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">polygons</span></code> is a more general function, that gives better results. It divides
-the plane into <em>polygons</em> (using the “polygonation” developed [in this
-project](<a class="reference external" href="https://github.com/rwijtvliet/polygonation">https://github.com/rwijtvliet/polygonation</a>) and does interpolation
-inside of them using the <code class="docutils literal notranslate"><span class="pre">polygon</span></code> function above.</p></li>
+the plane into <em>polygons</em> (using the “polygonation” developed in this
+project: <a class="reference external" href="https://github.com/rwijtvliet/polygonation">https://github.com/rwijtvliet/polygonation</a>) and does interpolation
+inside each of them using the <code class="docutils literal notranslate"><span class="pre">polygon</span></code> function above.</p></li>
 </ul>
-<p>Though it’s not perfect, <code class="docutils literal notranslate"><span class="pre">polygons</span></code> generally gives much smoother results, as can be seen in the illustration below.</p>
+<p>Though it’s not perfect, <code class="docutils literal notranslate"><span class="pre">polygons</span></code> generally gives much smoother results, as
+can be seen in the illustration further below.</p>
 <p>Sample use:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="c1"># Interpolation with numeric values.</span>
+
+<span class="gp">In [6]: </span><span class="c1"># using triangles</span>
+
+<span class="gp">In [7]: </span><span class="c1"># using polygons</span>
+
+<span class="gp">In [8]: </span><span class="c1"># Interpolation with colors: analogously.</span>
+</pre></div>
+</div>
+<p>Here an illustration that shows how the interpolated values/colors vary across
+the plane. It also shows how both functions tessellate the plane on the first row.
+Note how the second interpolation on each row (using <code class="docutils literal notranslate"><span class="pre">polygons</span></code>), is smoother
+than the first (using <code class="docutils literal notranslate"><span class="pre">triangles</span></code>).</p>
 <div class="figure align-default">
 <img alt="_images/illustration2.png" src="_images/illustration2.png" />
 </div>
