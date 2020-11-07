@@ -34,7 +34,8 @@ Sample use:
        ...: f = ip.polygon(anchors, values)
        ...: f((0.5, 0.6))
 
-Here is an illustration that shows how the interpolated values/colors vary across the plane for a given polygon. The anchor points are indicated.
+Here is an illustration that shows how the interpolated values/colors vary across
+the plane for a given polygon. The anchor points are indicated.
 
 .. plot:: illustration1.py
 
@@ -53,12 +54,34 @@ several (unordered) points are provided.
   function tries nonetheless, but results are often poor.
 
 * ``polygons`` is a more general function, that gives better results. It divides
-  the plane into *polygons* (using the "polygonation" developed [in this
-  project](https://github.com/rwijtvliet/polygonation) and does interpolation
-  inside of them using the ``polygon`` function above.
+  the plane into *polygons* (using the "polygonation" developed in this
+  project: https://github.com/rwijtvliet/polygonation) and does interpolation
+  inside each of them using the ``polygon`` function above.
 
-Though it's not perfect, ``polygons`` generally gives much smoother results, as can be seen in the illustration below.
+Though it's not perfect, ``polygons`` generally gives much smoother results, as
+can be seen in the illustration further below.
 
 Sample use:
+
+.. ipython::
+
+    In [54]: # Interpolation with numeric values.
+        ...: anchors = np.random.rand(10, 2)  # random points in plane
+        ...: values = np.random.rand(10)  # random value for each point
+
+    In [55]: # using triangles
+        ...: f = p2c.triangles(anchors, values)
+        ...: f((0.5, 0.6))
+
+    In [56]: # using polygons
+        ...: f = p2c.polygons(anchors, values)
+        ...: f((0.5, 0.6))
+
+    In [57]: # Interpolation with colors: analogously.
+
+Here an illustration that shows how the interpolated values/colors vary across
+the plane. It also shows how both functions tessellate the plane on the first row.
+Note how the second interpolation on each row (using ``polygons``), is smoother
+than the first (using ``triangles``).
 
 .. plot:: illustration2.py
