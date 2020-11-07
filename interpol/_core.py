@@ -10,7 +10,7 @@ from scipy.spatial import Delaunay, ConvexHull
 from polygonation import Polygonate
 
 
-#%% Interpolation function in single polygon.
+# %% Interpolation function in single polygon.
 
 
 def polygon(anchorpoints: Iterable, anchorvalues: Iterable) -> Callable:
@@ -85,7 +85,7 @@ def polygon(anchorpoints: Iterable, anchorvalues: Iterable) -> Callable:
     return interp
 
 
-#%% Interpolation functions in plane with points.
+# %% Interpolation functions in plane with points.
 
 
 def triangles(
@@ -119,7 +119,8 @@ def triangles(
     length, e.g. 3- or 4-tuples specifying colors. The interpolation function's
     return value has the same length as the anchorvalues.
 
-    Source: https://stackoverflow.com/questions/57863618/how-to-vectorize-calculation-of-barycentric-coordinates-in-python
+    Source: https://stackoverflow.com/questions/57863618/how-to-vectorize-cal\
+        culation-of-barycentric-coordinates-in-python
     """
     anchorpoints = np.array(anchorpoints)
     anchorvalues = np.array(anchorvalues)

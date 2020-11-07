@@ -1,4 +1,4 @@
-from ._core import polygon, polygons, triangles
+from ._core import polygon, polygons, triangles  # noqa
 from ._version import get_versions
 
 __version__ = get_versions()["version"]

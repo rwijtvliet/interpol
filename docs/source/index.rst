@@ -11,5 +11,5 @@ interpol Documentation
 
    installation
    usage
+   api
    release-history
-   min_versions
