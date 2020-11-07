@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Api reference &mdash; interpol 0.post6+gbaee00c documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release History" href="release-history.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> interpol
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.post6+gbaee00c
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Api reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-history.html">Release History</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">interpol</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Api reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>Api reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>The package contains 3 interpolation functions</p>
+<dl class="py function">
+<dt id="interpol.polygon">
+<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">polygon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="_modules/interpol/_core.html#polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generalised barycentric interpolation inside/near single polygon.</p>
+<p>Interpolate the value at any point in the plane, if the coordinates and the
+values of a polygon’s nodes are specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of node coordinates (x, y) in order as they appear in the polygon.</p>
+</dd>
+<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each node.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
+<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
+length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
+return value has the same length as the anchorvalues.</p>
+<p>For points that lie outside the polygon, the interpolated value may be smaller
+(larger) than the minimum (maximum) of the specified <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>. This
+means that, when using colors for the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>, an invalid color may
+be returned.</p>
+<p>Source of algorithm: <a class="reference external" href="https://www.inf.usi.ch/hormann/papers/Hormann.2006.MVC.pdf">https://www.inf.usi.ch/hormann/papers/Hormann.2006.MVC.pdf</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="interpol.triangles">
+<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">triangles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">outsidevalue</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="_modules/interpol/_core.html#triangles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard barycentric interpolation (using triangles) near set of points.</p>
+<p>Interpolate the value at any point in the plane, if the coordinates and
+values of a set of anchors is specified. If &gt;3 anchors are specified, the
+convex hull around them is tessellated with Delaunay triangles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of anchor point coordinates (x, y).</p>
+</dd>
+<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each anchor point.</p>
+</dd>
+<dt><strong>outsidevalue, optional</strong></dt><dd><p>Float specifying the value for points outside the hull. If not specified,
+an attempt at extrapolation is made (default).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
+<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
+length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
+return value has the same length as the anchorvalues.</p>
+<p>Source: <a class="reference external" href="https://stackoverflow.com/questions/57863618/how-to-vectorize-cal">https://stackoverflow.com/questions/57863618/how-to-vectorize-cal</a>        culation-of-barycentric-coordinates-in-python</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="interpol.polygons">
+<code class="sig-prename descclassname">interpol.</code><code class="sig-name descname">polygons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anchorpoints</span><span class="p">:</span> <span class="n">Iterable</span></em>, <em class="sig-param"><span class="n">anchorvalues</span><span class="p">:</span> <span class="n">Iterable</span></em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="_modules/interpol/_core.html#polygons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#interpol.polygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generalised barycentric interpolation (using polygons) near set of points.</p>
+<p>Interpolate the value at any point in the plane, if the coordinates and
+values of a set of anchors is specified. The convex hull around them is
+tessellated with polygons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>anchorpoints</strong></dt><dd><p>Iterable of anchor point coordinates (x, y).</p>
+</dd>
+<dt><strong>anchorvalues</strong></dt><dd><p>Iterable of floats specifying the known value at each anchor point.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Function that accepts coordinates (x, y) of any point in the plane as a</dt><dd></dd>
+<dt>2-Iterable, and returns the interpolated value at that point.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Instead of single floats, the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code> may also be iterables of uniform
+length, e.g. 3- or 4-tuples specifying colors. The interpolation function’s
+return value has the same length as the anchorvalues.</p>
+<p>For points that lie outside the hull, the interpolated value may be smaller
+(larger) than the minimum (maximum) of the specified <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>. This
+means that, when using colors for the <code class="docutils literal notranslate"><span class="pre">anchorvalues</span></code>, an invalid color may
+be returned.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="release-history.html" class="btn btn-neutral float-right" title="Release History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, rwijtvliet
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
