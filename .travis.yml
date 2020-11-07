@@ -15,9 +15,17 @@ install:
   # Install extra requirements for running tests and building docs.
   - pip install -r requirements-dev.txt
 
+env:
+      global:
+        # Doctr deploy key for rwijtvliet/interpol
+        - secure: "Z7c4aBRbM8v+7qIsdSno714j9J4tWkMksTXTCyqS+OrwyHZgE8s0hZIF+JOUV84cc7ZE8g/qOzsXN0pBGaPjRGUVqIfxQhc3ttMkPnlkwcrJSUIuO/jHOlXtW6nrCM3rAUYnGw4e7pIo9Qu65/nfqUcFGiL7BoUhmch0L7SMaXM8/DJIKhv2287kPswG/TuRNoZ0jCA+29J+ASdGrBR772Hbs0HV5ECl4XD5qNbQSMYWhP/u2QL9d5Y8O0Tvt7AohPlsBkAoSV9C0BnEMqCG1pkhccS2Lb5FXwN8af1qddgchAj34XSNeRdU89+mbNdWZvFOskQfWU/oW0wI8s96wCCZhvOkJAlnnaMPnZg5DKktOcYPn5mCl0KfjSqgNQeHi3h5Wpna1JyV86+vJknH0c9DIEIh/4K68uFfTBa9mc90lIB8P3zkglfbtzlTwIoFuni6Nu0VRNfmRBgIvwFJx6ShTtYKprhfK0Tkk30i9CDe3uy0Zok5hvWUQrVNLtPaTZTCmfoTi1+xID1envScd3hlk6BOubC455uJGbOUv8qD92VNW6A/WVJviKIYZ4MvspHCQdOPs/LDSB3n5XIRap5zfqMdoIJkMmrLh/7IaXRa9Fj1/AKt23EuZV+H27j9l6c72MHzyk9evcAYEkg7dfLxx0Oy+bPRVmEM2mOek2Y="
+
 script:
   - coverage run -m pytest  # Run the tests and check for test coverage.
   - coverage report -m  # Generate test coverage report.
   - codecov  # Upload the report to codecov.
   - flake8  # Enforce code style ('relaxed' line length limit is set in .flake8 config file).
+  - set -e
   - make -C docs html  # Build the documentation.
+  - pip install doctr
+  - doctr deploy --built-docs docs/built/html . --no-require-master

@@ -9,12 +9,8 @@ interpol
         :target: https://pypi.python.org/pypi/interpol
 
 
-Python package for doing interpolation in the plane.
+Python package for interpolation in the plane.
 
 * Free software: 3-clause BSD license
-* Documentation: (COMING SOON!) https://rwijtvliet.github.io/interpol.
+* Documentation: https://rwijtvliet.github.io/interpol
 
-Features
---------
-
-* TODO
