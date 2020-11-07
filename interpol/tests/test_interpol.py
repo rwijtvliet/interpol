@@ -59,7 +59,7 @@ def set_singletriangle_iterable():
 
 def set_manytriangles_float():
     anchorpoints, anchorvalues, testpoints = set_singletriangle_float()
-    # add values in peripherie that shouldn't influence the value
+    # add values in periphery that shouldn't influence the value
     for _ in range(10):
         x, y = np.random.rand(2)
         x += -0.5 if x < 0.5 else 0.55
@@ -71,7 +71,7 @@ def set_manytriangles_float():
 
 def set_manytriangles_iterable():
     anchorpoints, anchorvalues, testpoints = set_singletriangle_iterable()
-    # add values in peripherie that shouldn't influence the value
+    # add values in periphery that shouldn't influence the value
     for _ in range(10):
         x, y = np.random.rand(2)
         x += -0.5 if x < 0.5 else 0.55
